@@ -34,7 +34,7 @@ public class MonoTest {
                 .concatWithValues("FluxString3")
                 .concatWith(Flux.error(new RuntimeException("Calling FLUX onError() method.")))
                 .log();
-        fluxString.subscribe(System.out::println, e -> System.out.println(e.getMessage());
+        fluxString.subscribe(System.out::println, e -> System.out.println(e.getMessage()));
     }
 
 }
