@@ -10,5 +10,13 @@ public class MonoTest {
         Mono<String> monoString = Mono.just("MonoString").log();
         monoString.subscribe(System.out::println);
     }
+    
+    @Test
+    public void monoTestOnError() {
+        Mono<?> monoString = Mono.just("MonoString")
+                .then(Mono.error(new RuntimeException("Calling onError() method.")))
+                .log();
+        monoString.subscribe(System.out::println);
+    }
 
 }
