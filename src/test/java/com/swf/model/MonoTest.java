@@ -1,6 +1,7 @@
 package com.swf.model;
 
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class MonoTest {
@@ -17,6 +18,12 @@ public class MonoTest {
                 .then(Mono.error(new RuntimeException("Calling onError() method.")))
                 .log();
         monoString.subscribe(System.out::println, e -> System.out.println(e.getMessage()));
+    }
+    
+    @Test
+    public void fluxTest() {
+        Flux<String> fluxString = Flux.just("FluxString","FluxString1","FluxString2").log();
+        fluxString.subscribe(System.out::println);
     }
 
 }
