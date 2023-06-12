@@ -16,7 +16,7 @@ public class MonoTest {
         Mono<?> monoString = Mono.just("MonoString")
                 .then(Mono.error(new RuntimeException("Calling onError() method.")))
                 .log();
-        monoString.subscribe(System.out::println);
+        monoString.subscribe(System.out::println, e -> System.out.println(e.getMessage()));
     }
 
 }
