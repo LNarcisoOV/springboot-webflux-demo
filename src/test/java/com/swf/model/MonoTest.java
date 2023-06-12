@@ -22,7 +22,9 @@ public class MonoTest {
     
     @Test
     public void fluxTest() {
-        Flux<String> fluxString = Flux.just("FluxString","FluxString1","FluxString2").log();
+        Flux<String> fluxString = Flux.just("FluxString","FluxString1","FluxString2")
+                .concatWithValues("FluxString3")
+                .log();
         fluxString.subscribe(System.out::println);
     }
 
