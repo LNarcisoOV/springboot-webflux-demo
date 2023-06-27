@@ -23,5 +23,12 @@ public class CustomerDAO {
                 .doOnNext(i -> System.out.println("processing count in stream flow: " + i))
                 .map(i -> new CustomerDTO(i, "customer " + i));
     }
+    
+    public Flux<CustomerDTO> getCustomersStreamDirectly() {
+        return Flux.range(1, 50)
+                .doOnNext(i -> System.out.println("processing count in stream flow: " + i))
+                .map(i -> new CustomerDTO(i, "customer " + i));
+    }
+
 
 }
