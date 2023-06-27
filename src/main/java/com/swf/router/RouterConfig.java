@@ -18,7 +18,9 @@ public class RouterConfig {
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions
                 .route()
-                .GET("/router/customer", customerHandler::getCustomersStreamDirectly).build();
+                .GET("/router/customer", customerHandler::getCustomersRouter)
+                .GET("/router/customer", customerHandler::getCustomersRouter)
+                .build();
     }
 
 }

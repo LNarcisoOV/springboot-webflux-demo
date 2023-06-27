@@ -16,8 +16,8 @@ public class CustomerHandler {
     private CustomerDAO customerDAO;
     
     
-    public Mono<ServerResponse> getCustomersStreamDirectly(ServerRequest request){
-        Flux<CustomerDTO> customers = customerDAO.getCustomersStreamDirectly();
+    public Mono<ServerResponse> getCustomersRouter(ServerRequest request){
+        Flux<CustomerDTO> customers = customerDAO.getCustomersRouter();
         
         return ServerResponse.ok().body(customers, CustomerDTO.class);
     }
