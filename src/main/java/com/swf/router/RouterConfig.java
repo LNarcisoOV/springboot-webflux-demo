@@ -7,19 +7,23 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import com.swf.handler.CustomerHandler;
+import com.swf.handler.CustomerStreamHandler;
 
 @Configuration
 public class RouterConfig {
 
     @Autowired
     private CustomerHandler customerHandler;
+    
+    @Autowired
+    private CustomerStreamHandler customerStreamHandler;
 
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions
                 .route()
                 .GET("/router/customer", customerHandler::getCustomersRouter)
-                .GET("/router/customer", customerHandler::getCustomersRouter)
+                .GET("/router/customer/stream", customerStreamHandler::getCustomersStreamRouter)
                 .build();
     }
 

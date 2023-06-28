@@ -29,6 +29,4 @@ public class CustomerDAO {
                 .doOnNext(i -> System.out.println("processing count in stream flow: " + i))
                 .map(i -> new CustomerDTO(i, "customer " + i));
     }
-
-
 }
